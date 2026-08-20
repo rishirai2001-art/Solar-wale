@@ -35,10 +35,14 @@ const header = document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
+    if (header) {
+
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+
     }
 
 });
@@ -46,8 +50,6 @@ window.addEventListener("scroll", () => {
 // ================= COUNTER ANIMATION =================
 
 const counters = document.querySelectorAll(".counter");
-
-let started = false;
 
 function runCounter() {
 
@@ -89,21 +91,15 @@ function runCounter() {
 
 }
 
-console.log("Script Loaded Successfully");
-
-// ================= START COUNTER =================
-
-window.addEventListener("load", () => {
-    runCounter();
-});
+window.addEventListener("load", runCounter);
 
 // ================= SOLAR CALCULATOR =================
 
-function calculateSolar(){
+function calculateSolar() {
 
     let bill = parseInt(document.getElementById("bill").value);
 
-    if(isNaN(bill) || bill<=0){
+    if (isNaN(bill) || bill <= 0) {
 
         alert("Please enter a valid electricity bill.");
 
@@ -111,20 +107,20 @@ function calculateSolar(){
 
     }
 
-    let kw = Math.ceil(bill/1000);
+    let kw = Math.ceil(bill / 1000);
 
-    let yearly = bill*12;
+    let yearly = bill * 12;
 
-    let saving = Math.round(yearly*0.8);
+    let saving = Math.round(yearly * 0.8);
 
     document.getElementById("system").innerHTML =
-    "Recommended System : " + kw + " kW";
+        "Recommended System : " + kw + " kW";
 
     document.getElementById("saving").innerHTML =
-    "Estimated Yearly Saving : ₹" + saving.toLocaleString();
+        "Estimated Yearly Saving : ₹" + saving.toLocaleString();
 
     document.getElementById("payback").innerHTML =
-    "Payback Period : 4-5 Years";
+        "Payback Period : 4-5 Years";
 
 }
 
@@ -134,11 +130,13 @@ const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 400){
+    if (!topBtn) return;
+
+    if (window.scrollY > 400) {
 
         topBtn.style.display = "block";
 
-    }else{
+    } else {
 
         topBtn.style.display = "none";
 
@@ -146,57 +144,59 @@ window.addEventListener("scroll", () => {
 
 });
 
-topBtn.addEventListener("click", () => {
+if (topBtn) {
 
-    window.scrollTo({
+    topBtn.addEventListener("click", () => {
 
-        top:0,
+        window.scrollTo({
 
-        behavior:"smooth"
+            top: 0,
+
+            behavior: "smooth"
+
+        });
 
     });
 
-});
-
-
+}
 
 // ================= LIGHTBOX =================
 
 const galleryImages = document.querySelectorAll(".gallery-item img");
-
 const lightbox = document.getElementById("lightbox");
-
 const lightboxImg = document.getElementById("lightbox-img");
-
 const closeLightbox = document.querySelector(".close-lightbox");
 
-galleryImages.forEach(img=>{
+if (lightbox && lightboxImg && closeLightbox) {
 
-    img.addEventListener("click",()=>{
+    galleryImages.forEach(img => {
 
-        lightbox.style.display="flex";
+        img.addEventListener("click", () => {
 
-        lightboxImg.src=img.src;
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+
+        });
 
     });
 
-});
+    closeLightbox.addEventListener("click", () => {
 
-closeLightbox.addEventListener("click",()=>{
+        lightbox.style.display = "none";
 
-    lightbox.style.display="none";
+    });
 
-});
+    lightbox.addEventListener("click", (e) => {
 
-lightbox.addEventListener("click",(e)=>{
+        if (e.target === lightbox) {
 
-    if(e.target===lightbox){
+            lightbox.style.display = "none";
 
-        lightbox.style.display="none";
+        }
 
-    }
+    });
 
-});
+}
 
 // ================= PRELOADER =================
 
@@ -204,21 +204,88 @@ window.addEventListener("load", function () {
 
     const preloader = document.getElementById("preloader");
 
-    preloader.style.opacity = "0";
+    if (preloader) {
 
-    setTimeout(() => {
-        preloader.style.display = "none";
-    }, 500);
+        preloader.style.opacity = "0";
+
+        setTimeout(() => {
+
+            preloader.style.display = "none";
+
+        }, 500);
+
+    }
 
 });
 
 // ================= MOBILE MENU =================
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-links");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-links");
+
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener("click", function () {
+
+            navMenu.classList.toggle("active");
+
+        });
+
+    }
+
+});
+// ================= POPUP QUOTE =================
+
+const quoteModal = document.getElementById("quoteModal");
+const closeQuote = document.querySelector(".close-quote");
+
+document.querySelectorAll("#openQuote, .openQuote").forEach(function(button) {
+
+    button.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        if (quoteModal) {
+            quoteModal.classList.add("active");
+        }
+
     });
+
+});
+
+if (closeQuote && quoteModal) {
+
+    closeQuote.addEventListener("click", function() {
+
+        quoteModal.classList.remove("active");
+
+    });
+
+    quoteModal.addEventListener("click", function(e) {
+
+        if (e.target === quoteModal) {
+            quoteModal.classList.remove("active");
+        }
+
+    });
+
 }
+// ================= AUTO OPEN QUOTE POPUP =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const quoteModal = document.getElementById("quoteModal");
+
+    if (quoteModal) {
+
+        setTimeout(function () {
+
+            quoteModal.classList.add("active");
+
+        }, 1500);
+
+    }
+
+});

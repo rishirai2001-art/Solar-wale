@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rishirai2001-art.github.io/Solar-wale/sitemap.xml
+Sitemap: https://solarwale.netlify.app/sitemap.xml
