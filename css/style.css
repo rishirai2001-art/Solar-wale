@@ -640,11 +640,75 @@ gap:25px;
 
 @media(max-width:768px){
 
-.footer-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:30px;
-}
+    .footer{
+        padding:25px 15px 15px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+        text-align:center;
+    }
+
+    .footer h3{
+        margin-bottom:8px;
+        font-size:20px;
+    }
+
+    .footer p{
+        font-size:14px;
+        line-height:1.6;
+        margin:7px 0;
+        word-break:break-word;
+    }
+
+    .footer a{
+        font-size:14px;
+        margin:6px 0;
+    }
+
+    .footer-bottom{
+        margin-top:25px;
+        padding-top:15px;
+        font-size:13px;
+        line-height:1.5;
+    }
+
+}@media(max-width:768px){
+
+    .footer{
+        padding:25px 15px 15px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+        text-align:center;
+    }
+
+    .footer h3{
+        margin-bottom:8px;
+        font-size:20px;
+    }
+
+    .footer p{
+        font-size:14px;
+        line-height:1.6;
+        margin:7px 0;
+        word-break:break-word;
+    }
+
+    .footer a{
+        font-size:14px;
+        margin:6px 0;
+    }
+
+    .footer-bottom{
+        margin-top:25px;
+        padding-top:15px;
+        font-size:13px;
+        line-height:1.5;
+    }
 
 }
 /* ================= HERO IMAGE EFFECT ================= */

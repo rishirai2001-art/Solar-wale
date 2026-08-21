@@ -4,107 +4,31 @@
 
 @media (max-width:992px){
 
-.hero-grid,
-.about-grid,
-.contact-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-}
+    .hero-grid,
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
 
-.about-cards,
-.features-grid,
-.services-grid{
-    grid-template-columns:repeat(2,1fr);
-}
+    .about-cards,
+    .features-grid,
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.hero-info{
-    justify-content:center;
-    flex-wrap:wrap;
-}
+    .hero-info{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
 
-nav{
-    display:none;
-}
+    nav{
+        display:none;
+    }
 
-.menu-toggle{
-    display:block;
-}
-
-}
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media (max-width:768px){
-
-.container{
-    width:95%;
-}
-
-.hero{
-    padding:120px 0 60px;
-}
-
-.hero h1{
-    font-size:36px;
-}
-
-.section-title h2{
-    font-size:30px;
-}
-
-.about-cards,
-.features-grid,
-.services-grid,
-.projects-grid,
-.gallery-grid{
-    grid-template-columns:1fr;
-}
-
-.primary-btn,
-.secondary-btn{
-    display:block;
-    width:100%;
-    margin:10px 0;
-    text-align:center;
-}
-
-.hero-info{
-    flex-direction:column;
-    gap:20px;
-}
-
-.contact-grid{
-    grid-template-columns:1fr;
-}
-
-.footer-grid{
-    grid-template-columns:1fr;
-}
-
-}
-
-/* ==========================
-   SMALL MOBILE
-========================== */
-
-@media (max-width:480px){
-
-.hero h1{
-    font-size:28px;
-}
-
-.hero p{
-    font-size:16px;
-}
-
-.logo{
-    font-size:22px;
-}
-
-}
-@media(max-width:992px){
+    .menu-toggle{
+        display:block;
+    }
 
     .about{
         padding:60px 0 !important;
@@ -129,10 +53,69 @@ nav{
         margin:auto;
     }
 }
-/* ================= MOBILE MENU FIX ================= */
 
-@media (max-width: 768px){
 
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+    .container{
+        width:92% !important;
+        max-width:100% !important;
+        margin:0 auto !important;
+    }
+
+    .hero{
+        padding:120px 0 60px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .about-cards,
+    .features-grid,
+    .services-grid,
+    .projects-grid,
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        display:block;
+        width:100%;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    .hero-info{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .contact-grid{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:35px !important;
+        width:100% !important;
+        text-align:center !important;
+    }
+
+    .footer-grid{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:35px !important;
+        width:100% !important;
+    }
+
+    /* Mobile Menu */
     header .container{
         display:flex;
         align-items:center;
@@ -178,5 +161,98 @@ nav{
 
     .nav-btn{
         display:none;
+    }
+
+    /* Footer */
+    footer .footer-grid > div,
+    footer .contact-grid > div{
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+    }
+
+    footer p{
+        max-width:100% !important;
+        overflow-wrap:anywhere !important;
+        word-break:break-word !important;
+    }
+
+    .footer-email{
+        display:flex !important;
+        align-items:flex-start !important;
+        justify-content:center !important;
+        gap:8px !important;
+        max-width:100% !important;
+        overflow-wrap:anywhere !important;
+        word-break:break-word !important;
+    }
+
+    footer .contact-info,
+    footer .contact-info p{
+        max-width:100% !important;
+        overflow-wrap:anywhere !important;
+        word-break:break-word !important;
+    }
+
+    footer h3{
+        text-align:center !important;
+    }
+
+    .whatsapp-float{
+        right:18px !important;
+        bottom:18px !important;
+    }
+
+    /* Contact */
+    .contact-grid .contact-info{
+        text-align:center !important;
+    }
+
+    .contact-grid .contact-info p{
+        font-size:15px !important;
+        font-weight:600 !important;
+    }
+
+    .contact-grid .contact-info a{
+        display:inline-block !important;
+        margin-left:8px !important;
+    }
+}
+
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width:480px){
+
+    .container{
+        width:90% !important;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    footer{
+        overflow-x:hidden !important;
+    }
+
+    footer .footer-grid,
+    footer .contact-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .footer-email{
+        font-size:14px !important;
     }
 }
